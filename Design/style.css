@@ -303,3 +303,48 @@ body {
         font-size: 0.95rem;
     }
 }
+/* ===== Bouton menu caché sur PC ===== */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ===== Navigation normale (PC) ===== */
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+/* ===== VERSION MOBILE ===== */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+        color: #222;
+    }
+
+    .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav a {
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #eee;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+}
