@@ -12,42 +12,55 @@ body {
     background-color: #f9f9f9;
 }
 
+/* ================= CONTAINER GLOBAL ================= */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
 /* ================= TOPBAR ================= */
 .topbar {
     background-color: #333;
     color: #fff;
     text-align: center;
     font-weight: bold;
-    padding: 8px 0;
+    padding: 8px 10px;
     font-size: 0.9rem;
 }
 
 /* ================= HEADER ================= */
 .header {
     background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
-.header .container {
-    max-width: 1200px;
-    margin: auto;
+.header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 15px 0;
+    position: relative;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #222;
+    white-space: nowrap;
+}
+
+/* ================= NAVIGATION ================= */
+.nav {
+    display: flex;
+    gap: 25px;
 }
 
 .nav a {
-    margin: 0 10px;
     text-decoration: none;
     color: #222;
     font-weight: 500;
@@ -56,6 +69,13 @@ body {
 
 .nav a:hover {
     color: #555;
+}
+
+/* ================= MENU TOGGLE (☰) ================= */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
 }
 
 /* ================= BUTTONS ================= */
@@ -67,12 +87,12 @@ body {
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
+    border: none;
 }
 
 .btn-primary {
     background-color: #555;
     color: #fff;
-    border: none;
 }
 
 .btn-primary:hover {
@@ -82,23 +102,25 @@ body {
 .btn-call {
     background-color: #777;
     color: #fff;
+    white-space: nowrap;
 }
 
 .btn-call:hover {
     background-color: #555;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO BLOG ================= */
 .hero {
     position: relative;
     text-align: center;
     overflow: hidden;
-    width: 100vw; /* Hero prend toute la largeur */
+    width: 100vw;
+    min-height: 50vh;
 }
 
 .hero-img {
-    width: 100vw; /* image pleine largeur */
-    height: auto; /* conserve le ratio original */
+    width: 100vw;
+    height: auto;
     display: block;
 }
 
@@ -232,9 +254,44 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .nav a {
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #eee;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+}
+
 @media (max-width: 600px) {
     .hero {
-        padding: 80px 0 40px 0;
+        padding: 100px 15px 40px 15px;
     }
 
     .hero-content h1 {
