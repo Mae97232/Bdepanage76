@@ -99,16 +99,6 @@ body {
     background-color: #222;
 }
 
-.btn-call {
-    background-color: #777;
-    color: #fff;
-    white-space: nowrap;
-}
-
-.btn-call:hover {
-    background-color: #555;
-}
-
 /* ===== HERO ===== */
 .hero {
     position: relative;
@@ -250,8 +240,9 @@ body {
     text-decoration: underline;
 }
 
-/* ===== FIXED CALL BUTTON ===== */
+/* ===== FIXED CALL BUTTON MOBILE ===== */
 .call-fixed {
+    display: none; /* caché par défaut sur desktop */
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -287,12 +278,6 @@ body {
 /* ===== MOBILE MENU ===== */
 @media (max-width: 768px) {
 
-    .header-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
     .menu-toggle {
         display: block;
     }
@@ -322,12 +307,12 @@ body {
         display: flex;
     }
 
-    .btn-call {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
     .hero {
         padding-top: 120px;
+    }
+
+    /* Bouton appel visible sur mobile */
+    .call-fixed {
+        display: block;
     }
 }
