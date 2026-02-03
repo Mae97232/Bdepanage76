@@ -1,319 +1,158 @@
-/* ================= RESET ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #222;
-    background-color: #f9f9f9;
-}
-
-/* ================= CONTAINER GLOBAL ================= */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-/* ================= TOPBAR ================= */
-.topbar {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    padding: 8px 10px;
-    font-size: 0.9rem;
-}
-
-/* ================= HEADER ================= */
-.header {
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
-    position: relative;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #222;
-    white-space: nowrap;
-}
-
-/* ================= NAVIGATION ================= */
-.nav {
-    display: flex;
-    gap: 25px;
-}
-
-.nav a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav a:hover {
-    color: #555;
-}
-
-/* ================= MENU TOGGLE (☰) ================= */
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* ================= BUTTONS ================= */
-.btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    border: none;
-}
-
-.btn-primary {
-    background-color: #555;
-    color: #fff;
-}
-
-.btn-primary:hover {
-    background-color: #333;
-}
-
-.btn-call {
-    background-color: #777;
-    color: #fff;
-    white-space: nowrap;
-}
-
-.btn-call:hover {
-    background-color: #555;
-}
+/* =========================================================
+   CONTACT.CSS - Page Contact (compatible header pro)
+   (Le header est géré par style.css)
+========================================================= */
 
 /* ================= HERO CONTACT ================= */
-.hero {
-    position: relative;
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 80px 20px 60px;
-    overflow: hidden;
-    color: #fff;
+.hero{
+  position:relative;
+  min-height:55vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:90px 20px 60px;
+  overflow:hidden;
+  color:#fff;
 }
 
-.hero-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
+.hero-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  z-index:-2;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
+/* overlay pour rendre le texte lisible */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.40);
+  z-index:-1;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+.hero-content{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  width:90%;
+  text-shadow:1px 1px 10px rgba(0,0,0,.6);
 }
 
-.hero p {
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+.hero-content h1{
+  font-size:2.4rem;
+  margin-bottom:10px;
+}
+
+.hero-content p{
+  font-size:1.1rem;
+  opacity:.95;
 }
 
 /* ================= SECTION CONTACT ================= */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 40px;
+.section .contact-grid{
+  margin-top:10px;
 }
 
-.contact-info h2 {
-    margin-bottom: 15px;
-    color: #222;
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
 }
 
-.contact-info p {
-    margin-bottom: 10px;
-    font-size: 1rem;
+/* ================= CONTACT INFO ================= */
+.contact-info{
+  background:#fff;
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
-.contact-info a {
-    color: #555;
-    text-decoration: none;
+.contact-info h2{
+  margin-bottom:12px;
+  color:#111;
+  font-size:1.5rem;
 }
 
-.contact-info a:hover {
-    text-decoration: underline;
+.contact-info p{
+  margin-bottom:10px;
+  font-size:1rem;
+  color:#333;
+}
+
+.contact-info a{
+  font-weight:800;
+  color:#111;
+}
+
+.contact-info a:hover{
+  text-decoration:underline;
+}
+
+/* ================= FORMULAIRE ================= */
+.contact-form{
+  background:#fff;
+  border-radius:14px;
+  padding:22px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
 }
 
 .contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
+.contact-form textarea{
+  width:100%;
+  padding:12px 12px;
+  margin-bottom:14px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:1rem;
+  outline:none;
 }
 
-.contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
+.contact-form textarea{
+  min-height:140px;
+  resize:vertical;
 }
 
-.contact-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #555;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#999;
 }
 
-.contact-form button:hover {
-    background-color: #333;
+/* bouton : on utilise .btn .btn-primary déjà défini dans style.css */
+.contact-form button{
+  width:100%;
 }
 
-/* ================= FOOTER ================= */
-.footer {
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 0.9rem;
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-content h1{
+    font-size:2rem;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+  }
 }
 
-.footer a {
-    color: #ccc;
-    text-decoration: none;
-}
+@media (max-width: 600px){
+  .hero{
+    padding-top:110px; /* laisse la place au header sticky */
+  }
 
-.footer a:hover {
-    text-decoration: underline;
-}
+  .hero-content h1{
+    font-size:1.6rem;
+  }
 
-/* ================= FIXED CALL BUTTON MOBILE ================= */
-.call-fixed {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.call-fixed a {
-    background-color: #555;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background-color 0.3s;
-}
-
-.call-fixed a:hover {
-    background-color: #333;
-}
-
-/* ================= MEDIA QUERIES ================= */
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        flex-direction: column;
-        align-items: center;
-        display: none;
-        padding: 20px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 999;
-    }
-
-    .nav a {
-        padding: 12px 0;
-        width: 100%;
-        text-align: center;
-        border-top: 1px solid #eee;
-    }
-
-    .nav.active {
-        display: flex;
-    }
-
-    .hero {
-        padding-top: 120px;
-    }
-
-    .call-fixed {
-        display: block;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding: 100px 15px 60px 15px;
-    }
-
-    .hero h1 {
-        font-size: 1.6rem;
-    }
-
-    .hero p {
-        font-size: 0.95rem;
-    }
+  .hero-content p{
+    font-size:.95rem;
+  }
 }
