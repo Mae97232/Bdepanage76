@@ -1,318 +1,463 @@
-/* ===== RESET ===== */
+/* =========================================================
+   RESET + BASE
+========================================================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #222;
-    background-color: #f9f9f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f9f9f9;
 }
 
-/* ===== CONTAINER GLOBAL ===== */
+/* =========================================================
+   CONTAINER
+========================================================= */
 .container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-/* ===== TOPBAR ===== */
+/* =========================================================
+   TOPBAR
+========================================================= */
 .topbar {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    padding: 8px 10px;
-    font-size: 0.9rem;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  padding: 8px 10px;
+  font-size: 0.9rem;
 }
 
-/* ===== HEADER ===== */
+/* =========================================================
+   HEADER PRO (LOGO + NAV + BOUTON URGENCE + MENU MOBILE)
+   IMPORTANT : ce header utilise tes classes actuelles :
+   .header .header-content .logo .nav .btn-call .menu-toggle
+========================================================= */
 .header {
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
+/* structure propre */
 .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  position: relative;
 }
 
+/* Logo */
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #222;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  color: #111;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 1.35rem;
 }
 
-/* ===== NAVIGATION ===== */
+/* NAV desktop */
 .nav {
-    display: flex;
-    gap: 25px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
 
 .nav a {
-    text-decoration: none;
-    color: #222;
-    font-weight: 500;
-    transition: color 0.3s;
+  position: relative;
+  text-decoration: none;
+  color: #222;
+  font-weight: 650;
+  font-size: 0.95rem;
+  padding: 10px 2px;
+  opacity: 0.9;
+  transition: opacity .2s, color .2s;
 }
 
 .nav a:hover {
-    color: #555;
+  opacity: 1;
+  color: #000;
 }
 
-/* ===== MENU TOGGLE (☰) ===== */
+/* underline hover */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0%;
+  height: 2px;
+  background: #111;
+  border-radius: 999px;
+  transition: width .2s;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Bouton urgence (desktop) */
+.btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform .15s, box-shadow .15s;
+}
+
+.btn-call:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+}
+
+/* Menu burger (mobile) */
 .menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.10);
+  background: #fff;
+  cursor: pointer;
+  position: relative;
 }
 
-/* ===== BUTTONS ===== */
+/* On dessine les 3 barres */
+.menu-toggle::before,
+.menu-toggle::after,
+.menu-toggle span {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: #111;
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.menu-toggle::before { top: 14px; }
+.menu-toggle span     { top: 21px; }
+.menu-toggle::after  { top: 28px; }
+
+/* =========================================================
+   BUTTONS GENERIQUES
+========================================================= */
 .btn {
-    display: inline-block;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    border: none;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  transition: .2s;
 }
 
 .btn-primary {
-    background-color: #444;
-    color: #fff;
+  background: #444;
+  color: #fff;
 }
 
 .btn-primary:hover {
-    background-color: #222;
+  background: #222;
 }
 
-/* ===== HERO ===== */
+/* =========================================================
+   HERO
+========================================================= */
 .hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 100px 20px 60px;
-    overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px 60px;
+  overflow: hidden;
 }
 
+/* image hero en <img class="hero-img"> */
 .hero-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: -1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+
+/* léger voile pour lisibilité */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    color: #fff;
-    text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  font-size: 2.6rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    color: #fff;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+  font-size: 1.15rem;
+  margin-bottom: 25px;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 .hero-features {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .hero-features span {
-    background-color: rgba(0,0,0,0.6);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #fff;
+  background: rgba(0,0,0,0.55);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: #fff;
 }
 
-/* ===== SECTIONS ===== */
+/* =========================================================
+   SECTIONS
+========================================================= */
 .section {
-    padding: 80px 0;
+  padding: 80px 0;
 }
 
 .section-light {
-    background-color: #f2f2f2;
+  background: #f2f2f2;
 }
 
-/* ===== SERVICES ===== */
+.section h2 {
+  margin-bottom: 12px;
+  font-size: 1.8rem;
+  color: #111;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
 }
 
 .service-box {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: 0.3s;
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform .2s, box-shadow .2s;
 }
 
 .service-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
 }
 
-/* ===== ABOUT / GRID ===== */
+.service-box h3 {
+  margin-bottom: 8px;
+}
+
+/* =========================================================
+   ABOUT GRID
+========================================================= */
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
 .about-grid img {
-    width: 100%;
-    border-radius: 12px;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.10);
 }
 
-/* ===== CONTACT ===== */
+/* =========================================================
+   CONTACT
+========================================================= */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 1rem;
+  width: 100%;
+  padding: 12px 12px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #999;
 }
 
 .contact-form button {
-    width: 100%;
+  width: 100%;
 }
 
-/* ===== FOOTER ===== */
+/* =========================================================
+   FOOTER
+========================================================= */
 .footer {
-    background-color: #222;
-    color: #fff;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 0.9rem;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
 }
 
 .footer a {
-    color: #ccc;
-    text-decoration: none;
+  color: #ccc;
+  text-decoration: none;
 }
 
 .footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* ===== FIXED CALL BUTTON MOBILE ===== */
+/* =========================================================
+   BOUTON APPEL FIXE (MOBILE)
+========================================================= */
 .call-fixed {
-    display: none; /* caché par défaut sur desktop */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
+  display: none;
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+  width: calc(100% - 24px);
+  max-width: 420px;
 }
 
 .call-fixed a {
-    background-color: #444;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #111;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
 }
 
-/* ===== RESPONSIVE ===== */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 @media (max-width: 992px) {
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
+  .hero h1 { font-size: 2.1rem; }
+  .hero p { font-size: 1rem; }
 }
 
-/* ===== MOBILE MENU ===== */
+@media (max-width: 900px) {
+  /* nav disparaît + burger apparaît */
+  .nav { display: none; }
+  .menu-toggle { display: inline-block; }
+
+  /* bouton urgence desktop peut rester OU disparaître */
+  .btn-call {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
+
+/* menu mobile déroulant (utilise .nav.active) */
 @media (max-width: 768px) {
+  .btn-call { display: none; } /* plus propre : on utilise call-fixed */
 
-    .menu-toggle {
-        display: block;
-    }
+  .nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 12px 0 16px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    z-index: 2500;
+  }
 
-    .nav {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        flex-direction: column;
-        align-items: center;
-        display: none;
-        padding: 20px 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        z-index: 999;
-    }
+  .nav a {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+    border-top: 1px solid #eee;
+    font-size: 1rem;
+  }
 
-    .nav a {
-        padding: 12px 0;
-        width: 100%;
-        text-align: center;
-        border-top: 1px solid #eee;
-    }
+  .nav.active {
+    display: flex;
+  }
 
-    .nav.active {
-        display: flex;
-    }
+  .hero { padding-top: 120px; }
+  .call-fixed { display: block; }
+}
 
-    .hero {
-        padding-top: 120px;
-    }
-
-    /* Bouton appel visible sur mobile */
-    .call-fixed {
-        display: block;
-    }
+@media (max-width: 520px) {
+  .logo { font-size: 1.15rem; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero p  { font-size: 0.95rem; }
 }
