@@ -1,12 +1,13 @@
 /* =========================================================
-   CONTACT.CSS - Page Contact (compatible header pro)
-   (Le header est géré par style.css)
+   CONTACT.CSS – Page Contact
+   Image HERO visible en entier (PAS coupée)
+   Compatible avec style.css
 ========================================================= */
 
 /* ================= HERO CONTACT ================= */
 .hero{
   position:relative;
-  min-height:50vh;              /* ↓ moins haut = moins d'image coupée */
+  min-height:55vh;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -14,6 +15,9 @@
   padding:90px 20px 60px;
   overflow:hidden;
   color:#fff;
+
+  /* couleur derrière l’image si bandes */
+  background:#111;
 }
 
 .hero-img{
@@ -21,12 +25,15 @@
   inset:0;
   width:100%;
   height:100%;
-  object-fit:cover;
-  object-position:center 65%;   /* ✅ montre plus le bas (change 65% si besoin) */
+
+  /* ✅ IMAGE ENTIÈRE */
+  object-fit:contain;
+  object-position:center;
+
   z-index:-2;
 }
 
-/* overlay pour rendre le texte lisible */
+/* overlay lisibilité texte */
 .hero::before{
   content:"";
   position:absolute;
@@ -54,8 +61,8 @@
 }
 
 /* ================= SECTION CONTACT ================= */
-.section .contact-grid{
-  margin-top:10px;
+.section{
+  padding:70px 0;
 }
 
 .contact-grid{
@@ -75,8 +82,8 @@
 
 .contact-info h2{
   margin-bottom:12px;
-  color:#111;
   font-size:1.5rem;
+  color:#111;
 }
 
 .contact-info p{
@@ -88,6 +95,7 @@
 .contact-info a{
   font-weight:800;
   color:#111;
+  text-decoration:none;
 }
 
 .contact-info a:hover{
@@ -105,7 +113,7 @@
 .contact-form input,
 .contact-form textarea{
   width:100%;
-  padding:12px 12px;
+  padding:12px 14px;
   margin-bottom:14px;
   border:1px solid #ddd;
   border-radius:12px;
@@ -123,7 +131,7 @@
   border-color:#999;
 }
 
-/* bouton : on utilise .btn .btn-primary déjà défini dans style.css */
+/* bouton déjà stylé dans style.css */
 .contact-form button{
   width:100%;
 }
@@ -145,12 +153,8 @@
 
 @media (max-width: 600px){
   .hero{
-    padding-top:110px; /* laisse la place au header sticky */
-    min-height:55vh;   /* sur mobile on garde un peu plus haut */
-  }
-
-  .hero-img{
-    object-position:center 70%; /* ✅ mobile: montre encore plus le bas */
+    padding-top:120px; /* espace pour le header sticky */
+    min-height:50vh;
   }
 
   .hero-content h1{
