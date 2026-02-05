@@ -1,167 +1,287 @@
 /* =========================================================
-   CONTACT.CSS – Page Contact
-   Image HERO visible en entier (PAS coupée)
-   Compatible avec style.css
+   RESET + BASE
 ========================================================= */
-
-/* ================= HERO CONTACT ================= */
-.hero{
-  position:relative;
-  min-height:55vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:90px 20px 60px;
-  overflow:hidden;
-  color:#fff;
-
-  /* couleur derrière l’image si bandes */
-  background:#111;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.hero-img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-
-  /* ✅ IMAGE ENTIÈRE */
-  object-fit:contain;
-  object-position:center;
-
-  z-index:-2;
+html, body {
+  width: 100%;
 }
 
-/* overlay lisibilité texte */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.40);
-  z-index:-1;
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f9f9f9;
 }
 
-.hero-content{
-  position:relative;
-  z-index:1;
-  max-width:900px;
-  width:90%;
-  text-shadow:1px 1px 10px rgba(0,0,0,.6);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.hero-content h1{
-  font-size:2.4rem;
-  margin-bottom:10px;
+/* =========================================================
+   CONTAINER
+========================================================= */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-.hero-content p{
-  font-size:1.1rem;
-  opacity:.95;
+/* =========================================================
+   TOPBAR
+========================================================= */
+.topbar {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  padding: 8px 10px;
+  font-size: 0.9rem;
 }
 
-/* ================= SECTION CONTACT ================= */
-.section{
-  padding:70px 0;
+/* =========================================================
+   HEADER
+========================================================= */
+.header-content {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
 }
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:start;
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
 }
 
-/* ================= CONTACT INFO ================= */
-.contact-info{
-  background:#fff;
-  border-radius:14px;
-  padding:22px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
+.nav {
+  display: flex;
+  gap: 22px;
 }
 
-.contact-info h2{
-  margin-bottom:12px;
-  font-size:1.5rem;
-  color:#111;
+.nav a {
+  font-weight: 600;
+  color: #222;
 }
 
-.contact-info p{
-  margin-bottom:10px;
-  font-size:1rem;
-  color:#333;
+.nav a:hover {
+  color: #000;
 }
 
-.contact-info a{
-  font-weight:800;
-  color:#111;
-  text-decoration:none;
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
 }
 
-.contact-info a:hover{
-  text-decoration:underline;
+/* =========================================================
+   HERO CONTACT (IMAGE TOUJOURS VISIBLE EN ENTIER)
+========================================================= */
+.hero {
+  position: relative;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 60px;
+  background: #000;
+  overflow: hidden;
 }
 
-/* ================= FORMULAIRE ================= */
-.contact-form{
-  background:#fff;
-  border-radius:14px;
-  padding:22px;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
+/* IMAGE */
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* ✅ VOIR TOUTE L'IMAGE */
+  object-position: center;
+  background: #000;
+  z-index: -2;
+}
+
+/* overlay léger */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  z-index: -1;
+}
+
+.hero-content {
+  color: #fff;
+  max-width: 900px;
+  z-index: 1;
+  text-shadow: 1px 1px 8px rgba(0,0,0,.6);
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   SECTION CONTACT
+========================================================= */
+.section {
+  padding: 80px 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Infos */
+.contact-info {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.contact-info h2 {
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+/* Formulaire */
+.contact-form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
 
 .contact-form input,
-.contact-form textarea{
-  width:100%;
-  padding:12px 14px;
-  margin-bottom:14px;
-  border:1px solid #ddd;
-  border-radius:12px;
-  font-size:1rem;
-  outline:none;
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 
-.contact-form textarea{
-  min-height:140px;
-  resize:vertical;
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus{
-  border-color:#999;
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-/* bouton déjà stylé dans style.css */
-.contact-form button{
-  width:100%;
+.contact-form button:hover {
+  background: #000;
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 992px){
-  .contact-grid{
-    grid-template-columns:1fr;
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: .9rem;
+}
+
+.footer a {
+  color: #ccc;
+}
+
+/* =========================================================
+   BOUTON APPEL MOBILE
+========================================================= */
+.call-fixed {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  width: calc(100% - 24px);
+  max-width: 420px;
+}
+
+.call-fixed a {
+  display: block;
+  text-align: center;
+  background: #111;
+  color: #fff;
+  padding: 14px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .hero-content h1{
-    font-size:2rem;
+  .nav.active {
+    display: flex;
   }
 
-  .hero-content p{
-    font-size:1rem;
+  .menu-toggle {
+    display: block;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .call-fixed {
+    display: block;
   }
 }
 
-@media (max-width: 600px){
-  .hero{
-    padding-top:120px; /* espace pour le header sticky */
-    min-height:50vh;
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.7rem;
   }
 
-  .hero-content h1{
-    font-size:1.6rem;
-  }
-
-  .hero-content p{
-    font-size:.95rem;
+  .hero p {
+    font-size: .95rem;
   }
 }
