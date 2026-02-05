@@ -87,7 +87,7 @@ a {
 }
 
 /* =========================================================
-   HERO CONTACT (IMAGE TOUJOURS VISIBLE EN ENTIER)
+   HERO CONTACT — IMAGE TOUJOURS ENTIÈRE
 ========================================================= */
 .hero {
   position: relative;
@@ -101,19 +101,19 @@ a {
   overflow: hidden;
 }
 
-/* IMAGE */
+/* IMAGE HERO */
 .hero-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* ✅ VOIR TOUTE L'IMAGE */
+  object-fit: contain;        /* ✅ IMAGE TOUJOURS VISIBLE EN ENTIER */
   object-position: center;
   background: #000;
   z-index: -2;
 }
 
-/* overlay léger */
+/* Overlay pour lisibilité du texte */
 .hero::before {
   content: "";
   position: absolute;
