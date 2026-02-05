@@ -1,52 +1,65 @@
 /* =========================================================
-   BLOG.CSS - Page Blog & Vidéos (IMAGE HERO NON COUPÉE)
+   BLOG.CSS - Page Blog & Vidéos
+   Objectif : VOIR TOUTE L'IMAGE (pas coupée)
+   (override propre de style.css)
 ========================================================= */
 
-/* ===== HERO BLOG ===== */
+/* ===== HERO BLOG (override de style.css) ===== */
 .hero{
-  position:relative;
-  width:100%;
-  background:#000;
+  /* on annule le hero "background" de style.css */
+  position:relative !important;
+  display:block !important;           /* stop flex center */
+  min-height:unset !important;        /* stop min-height 100vh */
+  padding:0 !important;               /* stop gros padding */
   text-align:center;
   overflow:hidden;
+  background:#000;                    /* bandes noires si besoin */
 }
 
-/* ✅ image visible en entier (pas coupée) */
-.hero-img{
-  width:100%;
-  height:auto;        /* garde proportions */
-  display:block;
+/* ✅ image visible EN ENTIER */
+.hero .hero-img{
+  position:static !important;         /* annule absolute */
+  inset:auto !important;
+  width:100% !important;
+  height:auto !important;             /* garde ratio => image entière */
+  display:block !important;
+  object-fit:contain !important;      /* pas de crop */
+  object-position:center !important;
+  background:#000;
+  z-index:0 !important;
 }
 
-/* overlay pour lisibilité */
-.hero::after{
+/* overlay lisibilité (au-dessus de l'image) */
+.hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.40);
+  background:rgba(0,0,0,.35);
+  z-index:1;
   pointer-events:none;
 }
 
 /* texte centré sur l'image */
-.hero-content{
-  position:absolute;
+.hero .hero-content{
+  position:absolute !important;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
   max-width:900px;
   width:90%;
   color:#fff;
-  z-index:2;
-  text-shadow:1px 1px 8px rgba(0,0,0,.6);
+  z-index:2 !important;
+  text-shadow:1px 1px 10px rgba(0,0,0,.6);
+  padding:0 12px;
 }
 
-.hero-content h1{
+.hero .hero-content h1{
   font-size:2.4rem;
   margin-bottom:10px;
 }
 
-.hero-content p{
-  font-size:1.15rem;
+.hero .hero-content p{
+  font-size:1.1rem;
   opacity:.95;
 }
 
@@ -66,7 +79,6 @@
   margin-top:24px;
 }
 
-/* carte vidéo */
 .video-grid video{
   width:100%;
   border-radius:14px;
@@ -75,7 +87,6 @@
   overflow:hidden;
 }
 
-/* petit effet propre */
 .video-grid video:hover{
   box-shadow:0 12px 28px rgba(0,0,0,.18);
 }
@@ -91,7 +102,6 @@
   margin-top:18px;
 }
 
-/* bloc info */
 .contact-grid h2{
   margin-bottom:10px;
 }
@@ -114,12 +124,12 @@
    RESPONSIVE
 ========================================================= */
 @media (max-width: 992px){
-  .hero-content h1{font-size:2rem}
-  .hero-content p{font-size:1rem}
+  .hero .hero-content h1{font-size:2rem}
+  .hero .hero-content p{font-size:1rem}
 }
 
 @media (max-width: 600px){
-  .hero-content h1{font-size:1.6rem}
-  .hero-content p{font-size:.95rem}
+  .hero .hero-content h1{font-size:1.6rem}
+  .hero .hero-content p{font-size:.95rem}
   .video-grid{grid-template-columns:1fr}
 }

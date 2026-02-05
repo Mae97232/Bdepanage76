@@ -68,7 +68,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="Images/client.jpg" class="hero-img">
+    <!-- IMPORTANT : pour voir toute l'image, le blog.css doit mettre .hero-img en position:static + height:auto -->
+    <img src="Images/client.jpg" class="hero-img" alt="Intervention dépannage B.depannage76" />
     <div class="hero-content">
       <h1>Nos interventions en vidéos</h1>
       <p>Découvrez nos remorquages et dépannages en action.</p>
@@ -131,7 +132,7 @@
     </div>
   </section>
 
- <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer">
     <p>© 2026 B.depannage76 – Dépannage & Remorquage Automobile</p>
     <p>
@@ -149,17 +150,12 @@
     </p>
   </footer>
 
-  <!-- BOUTON APPEL MOBILE -->
+  <!-- BOUTON APPEL MOBILE (1 seule fois) -->
   <div class="call-fixed">
     <a href="tel:+33699488118">📞 Appel Dépannage Urgence</a>
   </div>
 
-  <!-- BOUTON APPEL MOBILE -->
-  <div class="call-fixed">
-    <a href="tel:+33699488118">📞 Appel Dépannage Urgence</a>
-  </div>
-
-  <!-- JS MENU MOBILE (même que index.html) -->
+  <!-- JS MENU MOBILE -->
   <script>
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('mobile-menu');
