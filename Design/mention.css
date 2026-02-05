@@ -1,0 +1,107 @@
+/* =========================================================
+   MENTIONS.CSS - Mentions légales
+   (Header / footer gérés par style.css)
+========================================================= */
+
+/* ===== Layout contenu ===== */
+.legal-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== Titres ===== */
+.legal-title{
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.legal-subtitle{
+  color: #555;
+  margin-bottom: 22px;
+}
+
+/* ===== Bloc principal ===== */
+.legal-card{
+  background: #fff;
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+}
+
+/* ===== Sections ===== */
+.legal-section{
+  margin-top: 22px;
+}
+
+.legal-section:first-child{
+  margin-top: 0;
+}
+
+.legal-section h2{
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.legal-section p{
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.legal-section a{
+  color: #111;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-section a:hover{
+  opacity: .85;
+}
+
+/* ===== Liste (si tu veux) ===== */
+.legal-list{
+  margin: 10px 0 0 18px;
+  color: #333;
+}
+
+.legal-list li{
+  margin-bottom: 8px;
+}
+
+/* ===== Séparateur ===== */
+.legal-hr{
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.10);
+  margin: 22px 0;
+}
+
+/* ===== Petit encart info ===== */
+.legal-note{
+  background: #f5f5f5;
+  border: 1px solid rgba(0,0,0,.06);
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: #333;
+  margin-top: 14px;
+  font-size: .95rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px){
+  .legal-title{
+    font-size: 1.55rem;
+  }
+
+  .legal-card{
+    padding: 18px;
+  }
+
+  .legal-section h2{
+    font-size: 1.15rem;
+  }
+}
